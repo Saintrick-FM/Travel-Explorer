@@ -1,0 +1,123 @@
+/* Loading Spinner */
+.loading-spinner {
+  text-align: center;
+  padding: 2rem;
+  color: var(--gray-dark);
+  width: auto;
+  margin: 0 auto;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid var(--gray);
+  border-top: 5px solid var(--primary);
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  animation: spin 1s linear infinite;
+}
+
+/* Buttons */
+.contact-button,
+.explore-button {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background: var(--primary);
+  color: var(--white);
+  text-decoration: none;
+  border-radius: 4px;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.contact-button:hover,
+.explore-button:hover {
+  background: var(--primary-dark);
+}
+
+/* Cards */
+.card {
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px var(--shadow);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Search Container */
+.search-container {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  gap: 1rem;
+}
+
+.search-container input {
+  flex: 1;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.search-container button {
+  padding: 0.8rem 1.5rem;
+  background-color: var(--dark);
+  color: var(--white);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-container button:hover {
+  background-color: #1a1a1a;
+}
+
+/* Hero Sections */
+.hero,
+.about-hero,
+.favorites-hero {
+  background: var(--gradient-primary);
+  color: var(--white);
+  text-align: center;
+  padding: 4rem 1rem;
+  animation: fadeIn 1s ease-out;
+}
+
+.hero h1,
+.about-hero h1,
+.favorites-hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.lead {
+  font-size: 1.25rem;
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .hero h1,
+  .about-hero h1,
+  .favorites-hero h1 {
+    font-size: 2rem;
+  }
+
+  .search-container {
+    flex-direction: column;
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1,
+  .about-hero h1,
+  .favorites-hero h1 {
+    font-size: 1.75rem;
+  }
+
+  .lead {
+    font-size: 1rem;
+  }
+}

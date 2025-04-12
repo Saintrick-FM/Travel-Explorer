@@ -1,0 +1,39 @@
+/* Favorites Page Styles */
+.favorites-hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.favorites-content {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.favorites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: -3rem;
+}
+
+.no-favorites-message {
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.message-content {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.message-content h2 {
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .favorites-grid {
+    grid-template-columns: 1fr;
+  }
+}

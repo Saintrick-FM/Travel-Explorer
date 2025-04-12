@@ -1,0 +1,82 @@
+/* Currency Converter Styles */
+.converter-card {
+  background-color: var(--white);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px var(--shadow);
+  max-width: 500px;
+  margin: 2rem auto;
+}
+
+.converter-card h3 {
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.converter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.input-group label {
+  color: var(--gray-dark);
+  font-size: 0.875rem;
+}
+
+.currency-input {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.currency-input input {
+  flex: 1;
+  padding: 0.75rem;
+  border: 1px solid var(--gray);
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.currency-input input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.currency-input select {
+  padding: 0.75rem;
+  border: 1px solid var(--gray);
+  border-radius: 6px;
+  background-color: var(--white);
+  font-size: 1rem;
+  min-width: 100px;
+}
+
+.swap-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--primary);
+  font-size: 1.25rem;
+  margin: 0.5rem 0;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.swap-icon:hover {
+  transform: scale(1.1);
+}
+
+.rate-info {
+  margin-top: 1rem;
+  text-align: center;
+  color: var(--gray-dark);
+  font-size: 0.875rem;
+}

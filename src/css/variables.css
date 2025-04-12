@@ -1,0 +1,46 @@
+:root {
+  --primary: #007bff;
+  --primary-dark: #0056b3;
+  --white: #ffffff;
+  --gray: #f5f5f5;
+  --gray-dark: #666666;
+  --dark: #333333;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --gradient-primary: linear-gradient(135deg, #007bff, #0056b3);
+}
+
+/* Base Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.6;
+  color: var(--dark);
+  background-color: var(--white);
+}
+
+/* Common Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Utility Classes */
+.hidden {
+  display: none;
+}
