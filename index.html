@@ -4,46 +4,57 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Travel Explorer</title>
-  <link rel="stylesheet" href="src/style/main.css" />
+  <meta name="description"
+    content="Travel Explorer - Your ultimate travel companion for destination information, weather updates, and local attractions">
+  <title>Travel Explorer - Your Travel Companion</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/style/main.css">
 </head>
 
 <body>
-  <div id="header-partial"></div>
+  <header class="header">
+    <nav class="navbar">
+      <div class="logo">
+        <a href="/" aria-label="Travel Explorer Home">Travel Explorer</a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="./" class="active">Home</a></li>
+        <li><a href="./favorites.html">Favorites</a></li>
+        <li><a href="./about.html">About</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <main>
+  <main class="main">
     <section class="hero">
-      <h1>Explore the world effortlessly</h1>
-      <p>Find weather, attractions, maps, and more — all in one place.</p>
-      <input type="text" id="searchInput" placeholder="Enter a destination..." />
-      <button id="searchBtn">Search</button>
+      <h1>Explore Your Next Adventure</h1>
+      <div class="search-container">
+        <input type="text" id="destination-search" placeholder="Enter a destination..."
+          aria-label="Search for a destination">
+        <button type="button" id="search-btn">Search</button>
+      </div>
     </section>
 
-    <section class="featured">
-      <h2>Featured Destinations</h2>
-      <div class="card-container">
-        <!-- Sample cards -->
-        <div class="card fade-in">
-          <img src="https://via.placeholder.com/300x200" alt="Destination" />
-          <h3>Paris</h3>
-          <p>The City of Lights awaits you.</p>
-        </div>
-        <div class="card fade-in delay">
-          <img src="https://via.placeholder.com/300x200" alt="Destination" />
-          <h3>Tokyo</h3>
-          <p>Where tradition meets technology.</p>
-        </div>
+    <section class="destination-info hidden">
+      <div class="weather-card card"></div>
+      <div class="attractions-container">
+        <h2>Popular Attractions</h2>
+        <div class="attractions-grid"></div>
+      </div>
+      <div class="currency-converter card">
+        <h2>Currency Converter</h2>
+        <div class="converter-content"></div>
       </div>
     </section>
   </main>
 
-  <script type="module">
-    import { loadPartial } from '/src/js/utils.js';
-    loadPartial('header-partial', '/public/partials/header.html');
-  </script>
-  <script type="module" src="src/js/app.js"></script>
+  <footer class="footer">
+    <p>&copy; 2024 Travel Explorer. All rights reserved.</p>
+  </footer>
+
+  <script type="module" src="/js/app.js"></script>
 </body>
 
 </html>

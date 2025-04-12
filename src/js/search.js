@@ -1,14 +1,32 @@
-// Example favorite item format
-const newFavorite = {
-  name: "Tokyo",
-  image: "https://via.placeholder.com/300x200",
-  description: "Where tradition meets technology.",
-};
+import { updateWeather } from './weather.js';
+import { updateAttractions } from './attractions.js';
+import { updateCurrency } from './currency.js';
 
-let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+export function initSearch() {
+  const searchInput = document.getElementById('destination-search');
+  const searchBtn = document.getElementById('search-btn');
+  const destinationInfo = document.querySelector('.destination-info');
 
-// Prevent duplicates
-if (!favorites.find((item) => item.name === newFavorite.name)) {
-  favorites.push(newFavorite);
-  localStorage.setItem("favorites", JSON.stringify(favorites));
+  searchBtn.addEventListener('click', handleSearch);
+  searchInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      handleSearch();
+    }
+  });
+
+  async function handleSearch() {
+    const destination = searchInput.value.trim();
+    if (!destination) return;
+
+    try {
+      destinationInfo.classList.remove('hidden');
+      await Promise.all([
+        updateWeather(destination),
+        updateAttractions(destination),
+        updateCurrency(destination)
+      ]);
+    } catch (error) {
+      console.error('Error fetching destination data:', error);
+    }
+  }
 }

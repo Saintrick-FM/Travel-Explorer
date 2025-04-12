@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Your favorite travel destinations - Travel Explorer">
+  <title>Favorites - Travel Explorer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/style/main.css">
+</head>
+
+<body>
+  <header class="header">
+    <nav class="navbar">
+      <div class="logo">
+        <a href="/" aria-label="Travel Explorer Home">Travel Explorer</a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="./">Home</a></li>
+        <li><a href="./favorites.html" class="active">Favorites</a></li>
+        <li><a href="./about.html">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main">
+    <section class="favorites-hero">
+      <div class="favorites-hero-content">
+        <h1>Your Favorite Destinations</h1>
+        <p class="lead">All your beloved places in one spot</p>
+      </div>
+    </section>
+
+    <section class="favorites-content">
+      <div class="favorites-grid"></div>
+      <div class="no-favorites-message hidden">
+        <div class="message-content">
+          <h2>No Favorites Yet</h2>
+          <p>Start exploring destinations and add them to your favorites!</p>
+          <a href="/" class="explore-button">Explore Now</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2024 Travel Explorer. All rights reserved.</p>
+  </footer>
+
+  <script type="module">
+    // Load and display favorites
+    const favoritesGrid = document.querySelector('.favorites-grid');
+    const noFavoritesMessage = document.querySelector('.no-favorites-message');
+    const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+
+    if (favorites.length === 0) {
+      noFavoritesMessage.classList.remove('hidden');
+    } else {
+      favoritesGrid.innerHTML = '<div class="loading">Loading your favorites...</div>';
+      // Here you would typically fetch the details for each favorite place
+      // and display them in the grid
+    }
+  </script>
+</body>
+
+</html>

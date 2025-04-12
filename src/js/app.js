@@ -1,9 +1,16 @@
-console.log("Travel Explorer app is running!");
+import { initSearch } from './search.js';
+import { initWeather } from './weather.js';
+import { initAttractions } from './attractions.js';
+import { initCurrency } from './currency.js';
+import { initFavorites } from './favorites.js';
+import { initAnimations } from './animations.js';
 
-import "./search.js";
-import "./weather.js";
-import "./attractions.js";
-import "./currency.js";
-import "./favorites.js";
-import "./map.js";
-import "./animations.js";
+// Initialize all modules
+document.addEventListener('DOMContentLoaded', () => {
+  initSearch();
+  initWeather();
+  initAttractions();
+  initCurrency();
+  initFavorites();
+  initAnimations();
+});
