@@ -41,7 +41,7 @@
   z-index: -1;
   margin: calc(-1 * var(--border-width));
   border-radius: inherit;
-  background: var(--gradient-border);
+  /* background: var(--gradient-border); */
   transition: opacity 0.3s ease;
   opacity: 0.7;
 }

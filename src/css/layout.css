@@ -47,6 +47,22 @@
   min-height: calc(100vh - 8rem);
 }
 
+/* Weather and Currency Converter */
+.weather-currency-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.weather-card {
+  flex: 1;
+}
+
+.currency-converter {
+  flex: 1;
+}
+
 /* Footer */
 .footer {
   background-color: var(--dark);
@@ -67,6 +83,11 @@
   .nav-links {
     width: 100%;
     justify-content: space-between;
+  }
+
+  .weather-currency-container {
+    flex-direction: column;
+    align-items: stretch;
   }
 }
 
