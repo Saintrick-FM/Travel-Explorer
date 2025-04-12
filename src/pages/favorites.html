@@ -7,7 +7,7 @@
   <meta name="description" content="Your favorite travel destinations - Travel Explorer">
   <title>Favorites - Travel Explorer</title>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/src/style/main.css">
+  <link rel="stylesheet" href="/css/main.css">
 </head>
 
 <body>
@@ -27,7 +27,7 @@
         <div class="message-content">
           <h2>No Favorites Yet</h2>
           <p>Start exploring destinations and add them to your favorites!</p>
-          <a href="/" class="explore-button">Explore Now</a>
+          <a href="/index.html" class="explore-button">Explore Now</a>
         </div>
       </div>
     </section>
@@ -35,10 +35,8 @@
 
   <div id="footer-partial"></div>
 
+  <script type="module" src="/js/app.js"></script>
   <script type="module">
-    import { loadPartials } from '/src/js/utils.js';
-    loadPartials('favorites');
-
     // Load and display favorites
     const favoritesGrid = document.querySelector('.favorites-grid');
     const noFavoritesMessage = document.querySelector('.no-favorites-message');
