@@ -18,6 +18,7 @@ if (pathname.includes("about.html")) {
 }
 
 loadPartials(currentPage);
+
 // Initialize all modules
 document.addEventListener("DOMContentLoaded", () => {
   initSearch();
@@ -26,4 +27,33 @@ document.addEventListener("DOMContentLoaded", () => {
   initCurrency();
   initFavorites();
   initAnimations();
+
+  document.querySelectorAll('.favorite-btn').forEach(button => {
+    button.addEventListener('click', (event) => {
+      const attractionCard = event.target.closest('.attraction-card');
+      const attractionName = attractionCard.querySelector('h3').textContent;
+      addToFavorites(attractionName);
+    });
+  });
+
+  function addToFavorites(attraction) {
+    let favorites = JSON.parse(sessionStorage.getItem('favorites')) || [];
+    if (!favorites.includes(attraction)) {
+      favorites.push(attraction);
+      sessionStorage.setItem('favorites', JSON.stringify(favorites));
+      showNotification(`${attraction} added to favorites!`);
+    } else {
+      showNotification(`${attraction} is already in favorites!`);
+    }
+  }
+
+  function showNotification(message) {
+    const notification = document.createElement('div');
+    notification.className = 'notification';
+    notification.textContent = message;
+    document.body.appendChild(notification);
+    setTimeout(() => {
+      notification.remove();
+    }, 3000);
+  }
 });
