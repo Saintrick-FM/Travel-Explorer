@@ -11,18 +11,7 @@
 </head>
 
 <body>
-  <header class="header">
-    <nav class="navbar">
-      <div class="logo">
-        <a href="/" aria-label="Travel Explorer Home">Travel Explorer</a>
-      </div>
-      <ul class="nav-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/favorites.html">Favorites</a></li>
-        <li><a href="/about.html" class="active">About</a></li>
-      </ul>
-    </nav>
-  </header>
+  <div id="header-partial"></div>
 
   <main class="main">
     <section class="about-hero">
@@ -76,9 +65,12 @@
     </section>
   </main>
 
-  <footer class="footer">
-    <p>&copy; 2024 Travel Explorer. All rights reserved.</p>
-  </footer>
+  <div id="footer-partial"></div>
+
+  <script type="module">
+    import { loadPartials } from '/src/js/utils.js';
+    loadPartials('about');
+  </script>
 </body>
 
 </html>

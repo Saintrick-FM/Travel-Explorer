@@ -1,20 +1,26 @@
-export async function loadPartial(elementId, partialPath) {
+export async function loadPartials(currentPage) {
     try {
-        const response = await fetch(partialPath);
-        const content = await response.text();
-        document.getElementById(elementId).innerHTML = content;
-        
-        // Update active state in navigation
-        const currentPath = window.location.pathname;
+        // Load header
+        const headerResponse = await fetch('/public/partials/header.html');
+        const headerContent = await headerResponse.text();
+        document.getElementById('header-partial').innerHTML = headerContent;
+
+        // Load footer
+        const footerResponse = await fetch('/public/partials/footer.html');
+        const footerContent = await footerResponse.text();
+        document.getElementById('footer-partial').innerHTML = footerContent;
+
+        // Set active navigation state
         const navLinks = document.querySelectorAll('.nav-links a');
         navLinks.forEach(link => {
-            if (link.getAttribute('href') === currentPath) {
+            const page = link.getAttribute('data-page');
+            if (page === currentPage) {
                 link.classList.add('active');
             } else {
                 link.classList.remove('active');
             }
         });
     } catch (error) {
-        console.error('Error loading partial:', error);
+        console.error('Error loading partials:', error);
     }
 }
