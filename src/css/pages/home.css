@@ -25,14 +25,33 @@
   background-color: var(--white);
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 6px var(--shadow);
   transition: all 0.3s ease;
-  border: 1px solid var(--gray);
+  position: relative;
+  border: var(--border-width) solid var(--gray);
+  background-clip: padding-box;
+}
+
+.attraction-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  margin: calc(-1 * var(--border-width));
+  border-radius: inherit;
+  background: var(--gradient-border);
+  transition: opacity 0.3s ease;
+  opacity: 0.7;
 }
 
 .attraction-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 6px 12px var(--shadow);
+}
+
+.attraction-card:hover::before {
+  opacity: 1;
 }
 
 .attraction-header {

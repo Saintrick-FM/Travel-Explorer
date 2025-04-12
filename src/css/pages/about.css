@@ -20,7 +20,22 @@
   background: var(--white);
   padding: 2rem;
   border-radius: 8px;
-  box-shadow: 0 4px 6px var(--shadow);
+  position: relative;
+  border: var(--border-width) solid transparent;
+  background-clip: padding-box;
+}
+
+.about-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  margin: calc(-1 * var(--border-width));
+  border-radius: inherit;
+  background: var(--gradient-border);
 }
 
 .about-card h2 {

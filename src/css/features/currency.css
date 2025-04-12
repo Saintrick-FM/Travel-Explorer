@@ -1,17 +1,18 @@
 /* Currency Converter Styles */
 .converter-card {
   background-color: var(--white);
-  border-radius: 12px;
   padding: 1.5rem;
-  box-shadow: 0 4px 6px var(--shadow);
   max-width: 500px;
-  margin: 2rem auto;
+  margin: 0 auto;
+  position: relative;
+  width: 100%;
+  text-align: left;
 }
 
 .converter-card h3 {
   color: var(--primary);
   margin-bottom: 1.5rem;
-  text-align: center;
+  text-align: left;
   font-size: 1.5rem;
 }
 
@@ -76,7 +77,7 @@
 
 .rate-info {
   margin-top: 1rem;
-  text-align: center;
+  text-align: left;
   color: var(--gray-dark);
   font-size: 0.875rem;
 }
