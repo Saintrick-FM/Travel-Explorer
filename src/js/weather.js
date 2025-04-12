@@ -1,4 +1,4 @@
-const WEATHER_API_KEY = import.meta.env.VITE_OPENWEATHER_API_KEY;
+const WEATHER_API_KEY = import.meta.env.VITE_OPENWEATHER_API;
 
 export function initWeather() {
   // Initialize weather module
@@ -7,8 +7,7 @@ export function initWeather() {
 
 export async function updateWeather(destination) {
   const weatherCard = document.querySelector(".weather-card");
-  console.log("Fetching weather data...", destination);
-  console.log("WEATHER_API_KEY = ", WEATHER_API_KEY);
+
   try {
     if (!WEATHER_API_KEY) {
       throw new Error("OpenWeather API key not configured");
@@ -17,8 +16,6 @@ export async function updateWeather(destination) {
     const response = await fetch(
       `https://api.openweathermap.org/data/2.5/weather?q=${destination}&units=metric&appid=${WEATHER_API_KEY}`
     );
-    console.log("Fetching weather data... WEATHER_API_KEY", WEATHER_API_KEY);
-    console.log({ response });
     if (!response.ok) throw new Error("Weather data not found");
 
     const data = await response.json();
