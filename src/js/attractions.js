@@ -1,7 +1,14 @@
 const GEOAPIFY_API_KEY = import.meta.env.VITE_GEOAPIFY_API;
 
 export function initAttractions() {
-  // Initialize attractions module
+  console.log("Initializing attractions");
+  // const storedAttractions = sessionStorage.getItem("attractions")
+  //   ? JSON.parse(sessionStorage.getItem("attractions"))
+  //   : null;
+
+  // if (storedAttractions?.features) {
+  //   displayAttractionCards(storedAttractions);
+  // }
 }
 
 function truncateText(text, maxLength) {
@@ -9,8 +16,9 @@ function truncateText(text, maxLength) {
   return text.length > maxLength ? text.substring(0, maxLength) + "..." : text;
 }
 
-function displayAttractionCards(data) {
+export function displayAttractionCards(data) {
   const attractionsGrid = document.querySelector(".attractions-grid");
+  console.log(data);
   attractionsGrid.innerHTML = data.features
     .map(
       (place) => `
@@ -68,6 +76,39 @@ function displayAttractionCards(data) {
     `
     )
     .join("");
+  sessionStorage.setItem("attractions", JSON.stringify(data));
+  attachFavoriteListeners();
+}
+
+function attachFavoriteListeners() {
+  document.querySelectorAll(".favorite-btn").forEach((button) => {
+    button.addEventListener("click", (event) => {
+      const attractionCard = event.target.closest(".attraction-card");
+      const attractionName = attractionCard.querySelector("h3").textContent;
+      addToFavorites(attractionName);
+    });
+  });
+}
+
+function addToFavorites(attraction) {
+  let favorites = JSON.parse(sessionStorage.getItem("favorites")) || [];
+  if (!favorites.includes(attraction)) {
+    favorites.push(attraction);
+    sessionStorage.setItem("favorites", JSON.stringify(favorites));
+    showNotification(`${attraction} added to favorites!`);
+  } else {
+    showNotification(`${attraction} is already in favorites!`);
+  }
+}
+
+function showNotification(message) {
+  const notification = document.createElement("div");
+  notification.className = "notification";
+  notification.textContent = message;
+  document.body.appendChild(notification);
+  setTimeout(() => {
+    notification.remove();
+  }, 3000);
 }
 
 async function getCoordinates(destination) {
@@ -122,7 +163,7 @@ export async function updateAttractions(destination) {
 
     // Now search for places within that bounding box
     const response = await fetch(
-      `https://api.geoapify.com/v2/places?categories=accommodation&filter=${bbox}&limit=20&apiKey=${GEOAPIFY_API_KEY}`,
+      `https://api.geoapify.com/v2/places?categories=accommodation&filter=${bbox}&limit=10&apiKey=${GEOAPIFY_API_KEY}`,
       {
         method: "GET",
       }

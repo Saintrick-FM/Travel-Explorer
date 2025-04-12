@@ -113,6 +113,22 @@
   opacity: 0.9;
 }
 
+/* No Favorites Message */
+.no-favorites-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.message-content {
+  max-width: 600px;
+  padding: 20px;
+}
+
 /* Notification Messages */
 .notification {
   position: fixed;

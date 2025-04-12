@@ -7,20 +7,24 @@ export function truncateText(text, maxLength) {
 // API utilities
 export async function fetchWithErrorHandling(url, options = {}) {
   const response = await fetch(url, options);
-  
+
   if (!response.ok) {
     const errorMessage = `API Error (Status ${response.status}): `;
     if (response.status === 401) {
-      throw new Error(errorMessage + "Invalid API key. Please check your configuration.");
+      throw new Error(
+        errorMessage + "Invalid API key. Please check your configuration."
+      );
     } else if (response.status === 404) {
       throw new Error(errorMessage + "Resource not found.");
     } else if (response.status === 429) {
-      throw new Error(errorMessage + "API rate limit exceeded. Please try again later.");
+      throw new Error(
+        errorMessage + "API rate limit exceeded. Please try again later."
+      );
     } else {
       throw new Error(errorMessage + "Failed to fetch data.");
     }
   }
-  
+
   return response.json();
 }
 
@@ -36,7 +40,9 @@ export function showLoading(element, message) {
 
 export function showError(element, error) {
   console.error(error);
-  element.innerHTML = `<p class="error">${error.message || 'An error occurred. Please try again.'}</p>`;
+  element.innerHTML = `<p class="error">${
+    error.message || "An error occurred. Please try again."
+  }</p>`;
 }
 
 export async function loadPartials(currentPage) {
@@ -56,9 +62,9 @@ export async function loadPartials(currentPage) {
     navLinks.forEach((link) => {
       const page = link.getAttribute("data-page");
       if (page === currentPage) {
-        link.classList.add("active");
+        link && link.classList.add("active");
       } else {
-        link.classList.remove("active");
+        link && link.classList.remove("active");
       }
     });
   } catch (error) {

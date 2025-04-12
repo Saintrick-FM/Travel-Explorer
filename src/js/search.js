@@ -7,7 +7,7 @@ export function initSearch() {
   const searchBtn = document.getElementById("search-btn");
   const destinationInfo = document.querySelector(".destination-info");
 
-  searchBtn.addEventListener("click", handleSearch);
+  searchBtn && searchBtn.addEventListener("click", handleSearch);
   searchInput.addEventListener("keypress", (e) => {
     if (e.key === "Enter") {
       handleSearch();
@@ -19,7 +19,7 @@ export function initSearch() {
     if (!destination) return;
 
     try {
-      destinationInfo.classList.remove("hidden");
+      destinationInfo && destinationInfo.classList.remove("hidden");
       await Promise.all([
         updateWeather(destination),
         updateAttractions(destination),
