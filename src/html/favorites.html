@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Favorites – Travel Explorer</title>
+    <link rel="stylesheet" href="src/style/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="header-partial"></div>
+
+    <main>
+        <section class="hero">
+            <h1>Your Saved Destinations</h1>
+            <p>Access your favorite spots at any time.</p>
+        </section>
+
+        <section class="featured">
+            <div class="card-container" id="favoritesContainer">
+                <!-- Favorite cards will be injected here -->
+            </div>
+        </section>
+    </main>
+
+    <script type="module">
+        import { loadPartial } from '/src/js/utils.js';
+        loadPartial('header-partial', '/public/partials/header.html');
+    </script>
+    <script type="module" src="/src/js/favorites.js"></script>
+</body>
+
+</html>
