@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "build": "vite build --emptyOutDir",
     "dev": "vite",
-    "build": "vite build",
     "preview": "vite preview"
   },
   "devDependencies": {
